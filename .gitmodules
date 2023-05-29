@@ -1,0 +1,4 @@
+[submodule "EventBus"]
+	path = EventBus
+	url = ../EventBus.git
+	branch = Develop

@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Audit.EntityFramework.Core" Version="17.0.6" />
+		<PackageReference Include="Autofac" Version="6.1.0" />
+		<PackageReference Include="Dapper" Version="2.0.90" />
+		<PackageReference Include="MD.PersianDateTime" Version="4.2.0" />
+		<PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="5.0.1" />
+		<PackageReference Include="StackExchange.Redis.Extensions.AspNetCore" Version="7.1.1" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.5" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.5" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.5">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="System.Linq.Dynamic.Core" Version="1.2.9" />
+		<PackageReference Include="Garnet.Detail.Pagination.ListExtensions" Version="0.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\EventBus\IntegrationEventLogEF\IntegrationEventLogEF.csproj" />
+		<ProjectReference Include="..\Chat.Application\Chat.Application.csproj" />
+		<ProjectReference Include="..\Chat.Domain\Chat.Domain.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="Application\CommandHandler\Attachment" />
+		<Folder Include="Extension\" />
+		<Folder Include="Migrations\" />
+		<Folder Include="Migrations\IntegrationEventLog" /> 
+	</ItemGroup>
+
+</Project>

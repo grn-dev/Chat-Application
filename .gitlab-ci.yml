@@ -1,0 +1,19 @@
+  image: ictu/sshpass
+
+  .docker: &docker-dotnet
+    tags:
+      - docker-dotnet
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+    CICD_STAGES: test
+    APP_NAME: chat
+
+  stages:
+    - publish
+
+  publish:
+    <<: *docker-dotnet
+    stage: publish
+    script:
+      - sshpass -p "123" scp -r -p -o "StrictHostKeyChecking no" ./* "maka@192.168.110.18:/home/maka/deploy/app-chat/"
+      - sshpass -p "123" ssh -o "StrictHostKeyChecking no" maka@192.168.110.18 "/home/maka/deploy/deploy-chat.sh --stages $CICD_STAGES --app-name $APP_NAME --image-name $APP_NAME --image-tag $CI_COMMIT_SHA"
